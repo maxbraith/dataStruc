@@ -95,12 +95,12 @@ public class BSTNodeUtil {
         if(node.getKey() == key){
             return node.getItem();
         }
-        T left = BSTget(node.getLeft(), key);
-        T right = BSTget(node.getRight(), key);
-        if(left != null){
+        if(node.getKey() > key){
+            T left = BSTget(node.getLeft(), key);
             return left;
         }
-        if(right != null){
+        if(node.getKey() < key){
+            T right = BSTget(node.getRight(), key);
             return right;
         }
         return null;

@@ -35,12 +35,12 @@ public class HashMap<T> implements Map<T> {
         if(map[index].getKey() == key){
             return map[index].getItem();
         }
-        T left = BSTNodeUtil.BSTget(map[index].getLeft(), key);
-        T right = BSTNodeUtil.BSTget(map[index].getRight(), key);
-        if(left != null){
+        if(map[index].getKey() > key){
+            T left = BSTNodeUtil.BSTget(map[index].getLeft(), key);
             return left;
         }
-        if(right != null){
+        if(map[index].getKey() < key){
+            T right = BSTNodeUtil.BSTget(map[index].getRight(), key);
             return right;
         }
         return null;
